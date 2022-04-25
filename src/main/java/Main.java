@@ -28,37 +28,37 @@ public class Main {
         System.out.println(mainMenu());
         // no need to close inputReader and connection since the try is used like this
         try (BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in)); Connection connection = getConnection()) {
-            if (connection == null) {
-                System.err.println("Connection failed.");
-                return;
-            }
-            createUsersTable(connection);
-            boolean selectionWasValid = false;
-            String userInput;
-
-            while (!selectionWasValid) {
-                System.out.print("Your response: ");
-                userInput = inputReader.readLine().strip();
-                switch (userInput) {
-                    case "1" -> {
-                        createAccount(inputReader, connection);
-                        selectionWasValid = true;
-                    }
-                    case "2" -> {
-                        login(inputReader, connection);
-                        selectionWasValid = true;
-                    }
-                    case "3" -> {
-                        deleteAccount(inputReader, connection);
-                        selectionWasValid = true;
-                    }
-                    case "0" -> {
-                        System.out.println("Have a nice day");
-                        selectionWasValid = true;
-                    }
-                    default -> System.out.println("Make a valid selection");
-                }
-            }
+//            if (connection == null) {
+//                System.err.println("Connection failed.");
+//                return;
+//            }
+//            createUsersTable(connection);
+//            boolean selectionWasValid = false;
+//            String userInput;
+//
+//            while (!selectionWasValid) {
+//                System.out.print("Your response: ");
+//                userInput = inputReader.readLine().strip();
+//                switch (userInput) {
+//                    case "1" -> {
+//                        createAccount(inputReader, connection);
+//                        selectionWasValid = true;
+//                    }
+//                    case "2" -> {
+//                        login(inputReader, connection);
+//                        selectionWasValid = true;
+//                    }
+//                    case "3" -> {
+//                        deleteAccount(inputReader, connection);
+//                        selectionWasValid = true;
+//                    }
+//                    case "0" -> {
+//                        System.out.println("Have a nice day");
+//                        selectionWasValid = true;
+//                    }
+//                    default -> System.out.println("Make a valid selection");
+//                }
+//            }
         }
         catch (IOException | SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
